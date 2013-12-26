@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</h:head>
+<body>
+<h:form id="squareTableForm">
+    <h:panelGrid columns="2" cellpadding="10">
+        <p:dataTable id="pointTbl" var="point" value="#{pointBean.squareListDto.pointList}" paginator="true" rows="30" rowKey="#{point.id}" selection="#{pointBean.selectedPoint}" selectionMode="single">
+            <p:ajax event="rowSelect" listener="#{pointBean.updateSelection}" update=":squareTableForm:pointTbl :squareTableForm:squareTbl" onsuccess="fillCanvas()"></p:ajax>
+            <f:facet name="header">
+                Dataset (click on row to disable/enable)
+            </f:facet>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Available" />
+                </f:facet>
+                <h:selectBooleanCheckbox disabled="true" value="#{point.inDataset}" />
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Latitude" />
+                </f:facet>
+                <h:outputText value="#{point.lat}" />
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Longitude" />
+                </f:facet>
+                <h:outputText value="#{point.lng}"/>
+            </p:column>
+        </p:dataTable>
+
+        <p:dataTable id="squareTbl" var="square" value="#{pointBean.squareListDto.squareList}" paginator="true" rows="30" rowKey="#{square.squareNumber}">
+            <f:facet name="header">
+                Squares
+            </f:facet>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 1" />
+                </f:facet>
+                <h:outputText value="(#{square.p1.lat};#{square.p1.lng})" />
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 2" />
+                </f:facet>
+                <h:outputText value="(#{square.p2.lat};#{square.p2.lng})"/>
+            </p:column>
+        </p:dataTable>
+    </h:panelGrid>
+    <canvas id="outputCanvas" width="500" height="500" style="border:1px solid #000000;"/>
+    <script>
+    function fillCanvas() {
+        $.getJSON( "http://localhost:8080/api/points/", function( json ) {
+            var canvas = document.getElementById('outputCanvas');
+            var context = canvas.getContext('2d');
+            context.strokeStyle = '#00ff00';
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            $.each(json.squareList, function(index, square) {
+                context.beginPath();
+                context.moveTo(square.p1.lng, square.p1.lat);
+                context.lineTo(square.p1.lng, square.p2.lat);
+                context.lineTo(square.p2.lng, square.p2.lat);
+                context.lineTo(square.p2.lng, square.p1.lat);
+                context.lineTo(square.p1.lng, square.p1.lat);
+                context.stroke();
+            });
+            context.strokeStyle = '#ff0000';
+            $.each(json.pointList, function(index, point) {
+                if (point.inDataset=='1')
+                {
+                    context.beginPath();
+                    context.fillRect(point.lng-2,point.lat-2,4,4);
+                    context.stroke();
+                }
+            });
+        });
+    }
+    </script>
+</h:form>
+</body>
+</html>
