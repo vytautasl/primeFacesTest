@@ -58,15 +58,17 @@ public class PointDaoImpl implements PointDao {
     public List<SquareDto> getSquares() {
         List<SquareDto> squareDtoList = new ArrayList<SquareDto>();
         String sql =
-                " SELECT p1.id as firstCorner, p3.id as secondCorner" +
+                " SELECT p1.id as firstCorner, p2.id as secondCorner, p3.id as thirdCorner, p4.id as fourthCorner" +
                 " FROM pt p1, pt p2, pt p3, pt p4" +
-                " WHERE p1.lng = p2.lng" +
-                " AND p2.lat = p3.lat" +
-                " AND p3.lng = p4.lng" +
-                " AND p4.lat = p1.lat" +
+                " WHERE " +
+                " pow(p1.lng-p2.lng, 2) + pow(p1.lat-p2.lat, 2) + pow(p2.lng-p3.lng, 2) + pow(p2.lat-p3.lat, 2) = pow(p1.lng-p3.lng, 2) + pow(p1.lat-p3.lat, 2)" +
+                " AND pow(p2.lng-p3.lng, 2) + pow(p2.lat-p3.lat, 2) + pow(p3.lng-p4.lng, 2) + pow(p3.lat-p4.lat, 2) = pow(p2.lng-p4.lng, 2) + pow(p2.lat-p4.lat, 2)" +
+                " AND pow(p3.lng-p4.lng, 2) + pow(p3.lat-p4.lat, 2) + pow(p4.lng-p1.lng, 2) + pow(p4.lat-p1.lat, 2) = pow(p3.lng-p1.lng, 2) + pow(p3.lat-p1.lat, 2)" +
+                " AND pow(p4.lng-p1.lng, 2) + pow(p4.lat-p1.lat, 2) + pow(p1.lng-p2.lng, 2) + pow(p1.lat-p2.lat, 2) = pow(p4.lng-p2.lng, 2) + pow(p4.lat-p2.lat, 2)" +
                 " AND p1.id <> p2.id" +
                 " AND p2.id <> p3.id" +
                 " AND p3.id <> p4.id" +
+                " AND p4.id <> p1.id" +
                 " AND p1.inDataset = 1" +
                 " AND p2.inDataset = 1" +
                 " AND p3.inDataset = 1" +
@@ -79,8 +81,12 @@ public class PointDaoImpl implements PointDao {
             Map idMap = response.get(i);
             Point p1 = getPoint((Integer)idMap.get("firstCorner"));
             Point p2 = getPoint((Integer)idMap.get("secondCorner"));
+            Point p3 = getPoint((Integer)idMap.get("thirdCorner"));
+            Point p4 = getPoint((Integer)idMap.get("fourthCorner"));
             squareDto.setP1(p1);
             squareDto.setP2(p2);
+            squareDto.setP3(p3);
+            squareDto.setP4(p4);
             squareDto.setSquareNumber(i);
             squareDtoList.add(squareDto);
         }

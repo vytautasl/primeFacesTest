@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,8 +29,50 @@ public class PointServiceImpl implements PointService {
 
     @Override
     public List<SquareDto> getSquareList() {
-        return pointDao.getSquares();
+        List<SquareDto> squareList = pointDao.getSquares();
+        squareList = removeDuplicates(squareList);
+        return squareList;
     }
+
+    private List<SquareDto> removeDuplicates(List<SquareDto> squareList) {
+        List<SquareDto> resultSquareList = new ArrayList<SquareDto>();
+        for (SquareDto square:squareList)
+        {
+            if (!containsSquare(resultSquareList, square))
+            {
+                resultSquareList.add(square);
+            }
+        }
+        return resultSquareList;
+    }
+
+    private boolean containsSquare(List<SquareDto> resultSquareList, SquareDto square) {
+        boolean result = false;
+        for (SquareDto squareElement:resultSquareList)
+        {
+            if (squaresEquals(squareElement, square))
+            {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+    private boolean squaresEquals(SquareDto square1, SquareDto square2) {
+        return
+                (pointsEquals(square1.getP1(), square2.getP1())||pointsEquals(square1.getP1(), square2.getP2())||pointsEquals(square1.getP1(), square2.getP3())||pointsEquals(square1.getP1(), square2.getP4()))&&
+                (pointsEquals(square1.getP2(), square2.getP1())||pointsEquals(square1.getP2(), square2.getP2())||pointsEquals(square1.getP2(), square2.getP3())||pointsEquals(square1.getP2(), square2.getP4()))&&
+                (pointsEquals(square1.getP3(), square2.getP1())||pointsEquals(square1.getP3(), square2.getP2())||pointsEquals(square1.getP3(), square2.getP3())||pointsEquals(square1.getP3(), square2.getP4()))&&
+                (pointsEquals(square1.getP4(), square2.getP1())||pointsEquals(square1.getP4(), square2.getP2())||pointsEquals(square1.getP4(), square2.getP3())||pointsEquals(square1.getP4(), square2.getP4()))
+                ;
+
+    }
+
+    private boolean pointsEquals(Point p1, Point p2) {
+        return (p1.getLng()==p2.getLng())&&(p1.getLat()==p2.getLat());
+    }
+
 
     @Override
     public int storePoint(Point point) {

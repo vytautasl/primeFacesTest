@@ -25,15 +25,6 @@ public class PointController {
 		return squareListDto;
     }
 
-    @RequestMapping(produces = {"application/json"},  method = RequestMethod.POST)
-    @ResponseBody
-    public CreateResult addPoint(@RequestBody Point point) {
-        CreateResult result = new CreateResult();
-        result.setSuccess(true);
-        result.setId(pointService.storePoint(point));
-        return result;
-    }
-
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
     public CreateResult updatePoint(@RequestBody Point point) {
@@ -43,9 +34,21 @@ public class PointController {
         return result;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public void deletePoint(@PathVariable("id") int id) {
+    public CreateResult addPoint(@RequestBody Point point) {
+        pointService.storePoint(point);
+        CreateResult result = new CreateResult();
+        result.setSuccess(true);
+        return result;
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public CreateResult deletePoint(@PathVariable int id) {
         pointService.deletePoint(id);
+        CreateResult result = new CreateResult();
+        result.setSuccess(true);
+        return result;
     }
 }

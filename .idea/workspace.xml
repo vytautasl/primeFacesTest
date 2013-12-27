@@ -12,15 +12,15 @@
     <file path="/Square.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387987308496" ignored="false" />
     <file path="/SquareList.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387987734372" ignored="false" />
     <file path="/PointDao.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387989189392" ignored="false" />
-    <file path="/PointDaoImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388098879537" ignored="false" />
-    <file path="/PointController.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388098504164" ignored="false" />
+    <file path="/PointDaoImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388128526975" ignored="false" />
+    <file path="/PointController.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388138812726" ignored="false" />
     <file path="/SquareDto.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388005840651" ignored="false" />
     <file path="/PointService.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388098451337" ignored="false" />
-    <file path="/PointServiceImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388098478685" ignored="false" />
+    <file path="/PointServiceImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388132512466" ignored="false" />
     <file path="/web.xml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387998034439" ignored="false" />
     <file path="/hibernate.cfg.xml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387998549277" ignored="false" />
-    <file path="/PointBean.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388097886070" ignored="false" />
-    <file path="/index.xhtml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388100284907" ignored="false" />
+    <file path="/PointBean.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388138487774" ignored="false" />
+    <file path="/index.xhtml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388140347127" ignored="false" />
     <file path="/CallUtils.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388092537055" ignored="false" />
     <file path="/SquareListDto.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388087293319" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -92,7 +92,7 @@
       <file leaf-file-name="PointController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="53" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0">
+            <state line="45" column="70" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,8 +101,10 @@
       <file leaf-file-name="PointServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="26" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="68" column="26" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1149#1160#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,7 +121,7 @@
       <file leaf-file-name="PointBean.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
+            <state line="74" column="0" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,24 +131,26 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="25" column="25" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="65" selection-start="2034" selection-end="2034" vertical-scroll-proportion="-24.846153">
+            <state line="80" column="72" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.627193">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointDaoImpl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PointDaoImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="71" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.55128205">
+            <state line="71" column="41" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,7 +159,7 @@
       <file leaf-file-name="SquareDto.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="45" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="23" column="25" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,7 +168,7 @@
       <file leaf-file-name="PointDao.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="33" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+            <state line="9" column="54" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,17 +189,17 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/beans/database/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/faces/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareListDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/domain/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -236,10 +240,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1918" />
-    <option name="height" value="1038" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -269,7 +273,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -702,7 +706,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -948,7 +952,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -956,21 +960,21 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.6017699" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39863327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3950893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32801822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32142857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.60136676" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32497332" sideWeight="0.60491073" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24892241" sideWeight="0.60136676" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24653149" sideWeight="0.60491073" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1044,34 +1048,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="16" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1158" column="45" selection-start="19441" selection-end="19445" vertical-scroll-proportion="-5.48">
-          <folding />
-        </state>
+        <state line="1158" column="45" selection-start="19441" selection-end="19445" vertical-scroll-proportion="-5.48" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.2.3.RELEASE/spring-aop-3.2.3.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="35" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-14.72">
-          <folding />
-        </state>
+        <state line="49" column="35" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-14.72" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/domain/Point.java">
@@ -1092,49 +1076,17 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/javax/annotation/Generated.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="18" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="52" column="18" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/javax/annotation/PostConstruct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="18" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="60" column="18" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="45" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="33" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="53" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0">
+        <state line="23" column="25" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1146,23 +1098,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="41" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="26" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.0">
+        <state line="68" column="26" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1149#1160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="25" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/4.0/primefaces-4.0.jar!/META-INF/primefaces-p.taglib.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11676" column="4" selection-start="430981" selection-end="430981" vertical-scroll-proportion="-6.5729165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="54" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="70" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="0" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="65" selection-start="2034" selection-end="2034" vertical-scroll-proportion="-24.846153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="71" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.55128205">
+        <state line="80" column="72" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.627193">
           <folding />
         </state>
       </provider>

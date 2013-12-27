@@ -5,6 +5,7 @@ import lt.agmis.testproject.dto.CreateResult;
 import lt.agmis.testproject.dto.SquareDto;
 import lt.agmis.testproject.dto.SquareListDto;
 import lt.agmis.testproject.faces.utils.CallUtils;
+import org.primefaces.event.RowEditEvent;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
@@ -25,28 +26,17 @@ public class PointBean {
     SquareDto selectedSquare;
     Point selectedPoint;
     Integer selectedPointId;
+    private double newLat;
+    private double newLng;
 
     @PostConstruct
     public void init()
     {
-        //if (!FacesContext.getCurrentInstance().getPartialViewContext().isAjaxRequest())
-        {
-            squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
-/*
-            List<Point> pointList = new ArrayList<Point>();
-            for (Point point:squareListDto.getPointList())
-            {
-                if (point.isInDataset())
-                {
-                    pointList.add(point);
-                }
-            }
-            selectedPoints = pointList.toArray(new Point[pointList.size()]);
-*/
-        }
+         squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
     }
 
     public SquareListDto getSquareListDto() {
+//        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
         return squareListDto;
     }
 
@@ -70,10 +60,27 @@ public class PointBean {
         this.selectedPoint = selectedPoint;
     }
 
-    public void updateSelection()
+    public void updateSelection(RowEditEvent event)
     {
-        selectedPoint.setInDataset(!selectedPoint.isInDataset());
-        CallUtils.postCall("http://localhost:8080/api/points/update", selectedPoint, CreateResult.class, new HashMap());
+        Point point = (Point)event.getObject();
+        CallUtils.postCall("http://localhost:8080/api/points/update", point, CreateResult.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+    }
+
+    public void deletePoint(int id)
+    {
+        CallUtils.getCall("http://localhost:8080/api/points/delete/"+id, CreateResult.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+    }
+
+    public void addPoint()
+    {
+        Point point = new Point();
+        point.setInDataset(true);
+        point.setLat(getNewLat());
+        point.setLng(getNewLng());
+        CallUtils.postCall("http://localhost:8080/api/points/add", point, CreateResult.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
     }
 
     public Integer getSelectedPointId() {
@@ -84,22 +91,19 @@ public class PointBean {
         this.selectedPointId = selectedPointId;
     }
 
-    /*
-    private void updateSelection(Point[] newSelectedPoints, Point[] oldSelectedPoints) {
-        for (int i=0; i<newSelectedPoints.length; i++)
-        {
-            for (int j=0; j<oldSelectedPoints.length; j++)
-            {
-                if (newSelectedPoints[i].getId().equals(oldSelectedPoints[j].getId()))
-                {
-                    if (newSelectedPoints[i].isInDataset()!=oldSelectedPoints[j].isInDataset())
-                    {
-                        CallUtils.postCall("http://localhost:8080/api/points/updatePoint/"+newSelectedPoints[i].getId(), newSelectedPoints[i], CreateResult.class, new HashMap());
-                    }
-                    break;
-                }
-            }
-        }
+    public double getNewLat() {
+        return newLat;
     }
-*/
+
+    public void setNewLat(double newLat) {
+        this.newLat = newLat;
+    }
+
+    public double getNewLng() {
+        return newLng;
+    }
+
+    public void setNewLng(double newLng) {
+        this.newLng = newLng;
+    }
 }
