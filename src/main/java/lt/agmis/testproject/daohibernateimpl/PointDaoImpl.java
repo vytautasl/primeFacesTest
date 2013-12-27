@@ -94,5 +94,15 @@ public class PointDaoImpl implements PointDao {
         return squareDtoList;
     }
 
+    @Override
+    public int deleteAll() {
+        return sessionFactory.getCurrentSession().createSQLQuery("delete from pt").executeUpdate();
+    }
+
+    @Override
+    public void loadDefault() {
+        sessionFactory.getCurrentSession().createSQLQuery("insert into pt (select * from pt_backup)").executeUpdate();
+    }
+
 
 }

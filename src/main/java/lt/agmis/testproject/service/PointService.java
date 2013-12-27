@@ -19,4 +19,6 @@ public interface PointService {
     void deletePoint(int id);
     Point getPoint(int id);
     List<Point> getPoints();
+    int deleteAll();
+    void loadDefault();
 }

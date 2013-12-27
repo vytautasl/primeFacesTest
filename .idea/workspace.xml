@@ -11,16 +11,16 @@
     <file path="/Point.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388090181757" ignored="false" />
     <file path="/Square.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387987308496" ignored="false" />
     <file path="/SquareList.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387987734372" ignored="false" />
-    <file path="/PointDao.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387989189392" ignored="false" />
-    <file path="/PointDaoImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388128526975" ignored="false" />
-    <file path="/PointController.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388138812726" ignored="false" />
+    <file path="/PointDao.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388157562382" ignored="false" />
+    <file path="/PointDaoImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388157617107" ignored="false" />
+    <file path="/PointController.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388157716347" ignored="false" />
     <file path="/SquareDto.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388005840651" ignored="false" />
-    <file path="/PointService.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388098451337" ignored="false" />
-    <file path="/PointServiceImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388132512466" ignored="false" />
+    <file path="/PointService.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388157536309" ignored="false" />
+    <file path="/PointServiceImpl.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388157741344" ignored="false" />
     <file path="/web.xml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387998034439" ignored="false" />
     <file path="/hibernate.cfg.xml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1387998549277" ignored="false" />
-    <file path="/PointBean.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388138487774" ignored="false" />
-    <file path="/index.xhtml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388140347127" ignored="false" />
+    <file path="/PointBean.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388158903860" ignored="false" />
+    <file path="/index.xhtml" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388158526797" ignored="false" />
     <file path="/CallUtils.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388092537055" ignored="false" />
     <file path="/SquareListDto.java" changelist="04a124ec-3629-43fc-8193-6ccaa32ea22a" time="1388087293319" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,7 +42,23 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java" line="36" class="lt.agmis.testproject.faces.PointBean" package="lt.agmis.testproject.faces">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -92,7 +108,7 @@
       <file leaf-file-name="PointController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="70" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.0">
+            <state line="66" column="32" selection-start="2228" selection-end="2228" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +117,7 @@
       <file leaf-file-name="PointServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="26" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+            <state line="110" column="27" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#1149#1160#0" expanded="true" />
               </folding>
@@ -112,16 +128,16 @@
       <file leaf-file-name="PointService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="21" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
+            <state line="14" column="23" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointBean.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PointBean.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0">
+            <state line="37" column="52" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.7053942">
               <folding />
             </state>
           </provider>
@@ -138,10 +154,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.xhtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="72" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.627193">
+            <state line="22" column="45" selection-start="1723" selection-end="1723" vertical-scroll-proportion="-14.384615">
               <folding />
             </state>
           </provider>
@@ -150,7 +166,7 @@
       <file leaf-file-name="PointDaoImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="41" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.0">
+            <state line="80" column="48" selection-start="3207" selection-end="3207" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,7 +184,7 @@
       <file leaf-file-name="PointDao.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="54" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
+            <state line="14" column="21" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -192,14 +208,14 @@
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareListDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/domain/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dto/SquareDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java" />
       </list>
     </option>
   </component>
@@ -952,7 +968,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1091,29 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="21" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="41" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="26" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1149#1160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/utils/CallUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="25" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0">
@@ -1130,30 +1123,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/service/PointService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="23" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/serviceimpl/PointServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="27" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1149#1160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/dao/PointDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="54" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0">
+        <state line="14" column="21" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/daohibernateimpl/PointDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="48" selection-start="3207" selection-end="3207" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/restcontroller/PointController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="70" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0">
+        <state line="66" column="32" selection-start="2228" selection-end="2228" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="72" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.627193">
+        <state line="22" column="45" selection-start="1723" selection-end="1723" vertical-scroll-proportion="-14.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/agmis/testproject/faces/PointBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="52" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.7053942">
           <folding />
         </state>
       </provider>

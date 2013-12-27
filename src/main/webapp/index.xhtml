@@ -8,7 +8,9 @@
         <p:dataTable id="pointTbl" var="point" value="#{pointBean.squareListDto.pointList}" paginator="true" rows="10" rowKey="#{point.id}" selection="#{pointBean.selectedPoint}" selectionMode="single" editable="true">
             <p:ajax event="rowEdit" update="@this :squareTableForm:pointTbl :squareTableForm:squareTbl" listener="#{pointBean.updateSelection}" onsuccess="fillCanvas()"/>
             <f:facet name="header">
-                Dataset (click on row to disable/enable)
+                Dataset:
+                <p:commandButton value="Load default" actionListener="#{pointBean.loadDefault}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
+                <p:commandButton value="Clear all data" actionListener="#{pointBean.deleteAll}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
             </f:facet>
             <p:column headerText="Available">
                 <p:cellEditor>
@@ -81,7 +83,7 @@
             <p:inputText id="newLng" value="#{pointBean.newLng}" size="5"/>
         </p:panel>
     </h:panelGrid>
-    <canvas id="outputCanvas" width="1200" height="400" style="border:1px solid #000000;"/>
+    <canvas id="outputCanvas" width="1000" height="400" style="border:1px solid #000000;"/>
     <script>
     function fillCanvas() {
         $.getJSON( "http://localhost:8080/api/points/", function( json ) {

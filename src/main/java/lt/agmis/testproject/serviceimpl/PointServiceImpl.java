@@ -101,4 +101,14 @@ public class PointServiceImpl implements PointService {
         return pointDao.getPoints();
     }
 
+    @Override
+    public int deleteAll() {
+        return pointDao.deleteAll();
+    }
+
+    @Override
+    public void loadDefault() {
+        pointDao.loadDefault();
+    }
+
 }

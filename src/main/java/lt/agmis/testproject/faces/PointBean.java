@@ -32,11 +32,12 @@ public class PointBean {
     @PostConstruct
     public void init()
     {
-         squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+        FacesContext context = FacesContext.getCurrentInstance();
+        System.out.println("context");
     }
 
     public SquareListDto getSquareListDto() {
-//        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
         return squareListDto;
     }
 
@@ -69,7 +70,7 @@ public class PointBean {
 
     public void deletePoint(int id)
     {
-        CallUtils.getCall("http://localhost:8080/api/points/delete/"+id, CreateResult.class, new HashMap());
+        CallUtils.getCall("http://localhost:8080/api/points/delete/" + id, CreateResult.class, new HashMap());
         squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
     }
 
@@ -80,6 +81,18 @@ public class PointBean {
         point.setLat(getNewLat());
         point.setLng(getNewLng());
         CallUtils.postCall("http://localhost:8080/api/points/add", point, CreateResult.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+    }
+
+    public void deleteAll()
+    {
+        CallUtils.getCall("http://localhost:8080/api/points/deleteAll", CreateResult.class, new HashMap());
+        squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
+    }
+
+    public void loadDefault()
+    {
+        CallUtils.getCall("http://localhost:8080/api/points/loadDefault", CreateResult.class, new HashMap());
         squareListDto = (SquareListDto)CallUtils.getCall("http://localhost:8080/api/points/", SquareListDto.class, new HashMap());
     }
 

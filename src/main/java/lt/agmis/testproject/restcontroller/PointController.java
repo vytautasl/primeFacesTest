@@ -51,4 +51,22 @@ public class PointController {
         result.setSuccess(true);
         return result;
     }
+
+    @RequestMapping(value = "/deleteAll", method = RequestMethod.GET)
+    @ResponseBody
+    public CreateResult deleteAll() {
+        pointService.deleteAll();
+        CreateResult result = new CreateResult();
+        result.setSuccess(true);
+        return result;
+    }
+
+    @RequestMapping(value = "/loadDefault", method = RequestMethod.GET)
+    @ResponseBody
+    public CreateResult loadDefault() {
+        pointService.loadDefault();
+        CreateResult result = new CreateResult();
+        result.setSuccess(true);
+        return result;
+    }
 }

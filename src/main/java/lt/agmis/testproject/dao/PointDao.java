@@ -19,4 +19,6 @@ public interface PointDao {
     int updatePoint(Point point);
     void deletePoint(Point point);
     List<SquareDto> getSquares();
+    int deleteAll();
+    void loadDefault();
 }
