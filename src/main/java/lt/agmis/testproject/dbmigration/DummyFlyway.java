@@ -1,4 +1,4 @@
-package lt.agmis.testproject.configuration.beans.dbmigration;
+package lt.agmis.testproject.dbmigration;
 
 import com.googlecode.flyway.core.Flyway;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package lt.agmis.testproject.configuration.beans.dbmigration;
+package lt.agmis.testproject.dbmigration;
 
 import com.googlecode.flyway.core.Flyway;
 import org.slf4j.Logger;
@@ -43,7 +43,7 @@ public class FlywayDbCleanMigrate {
         Flyway flyway = new Flyway();
 		flyway.setDataSource(dataSource);
 		flyway.setInitVersion("0.0.1");
-		flyway.setSchemas("testdatabaseTest");
+		flyway.setSchemas("dbvs_db_test");
 		flyway.clean();
 		flyway.init();
 		flyway.migrate();

@@ -17,7 +17,7 @@
 
     <context:component-scan base-package="lt.agmis.testproject.daohibernateimpl" />
 
-    <context:component-scan base-package="lt.agmis.testproject.configuration.beans.dbmigration" />
+    <context:component-scan base-package="lt.agmis.testproject.dbmigration" />
 
     <import resource="hibernate.xml"/>
 

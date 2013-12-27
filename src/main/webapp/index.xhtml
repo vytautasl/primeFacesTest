@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</h:head>
+<body onload="fillCanvas()">
+<h:form id="squareTableForm">
+    <h:panelGrid id="tablesGrid" columns="2" cellpadding="10">
+        <p:dataTable id="pointTbl" var="point" value="#{pointBean.squareListDto.pointList}" paginator="true" rows="10" rowKey="#{point.id}" selection="#{pointBean.selectedPoint}" selectionMode="single" editable="true">
+            <p:ajax event="rowEdit" update="@this :squareTableForm:pointTbl :squareTableForm:squareTbl" listener="#{pointBean.updateSelection}" onsuccess="fillCanvas()"/>
+            <f:facet name="header">
+                Dataset:
+                <p:commandButton value="Load default" actionListener="#{pointBean.loadDefault}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
+                <p:commandButton value="Clear all data" actionListener="#{pointBean.deleteAll}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
+            </f:facet>
+            <p:column headerText="Available">
+                <p:cellEditor>
+                    <f:facet name="output"><h:selectBooleanCheckbox disabled="true" value="#{point.inDataset}" /></f:facet>
+                    <f:facet name="input"><h:selectBooleanCheckbox value="#{point.inDataset}" /></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Latitude">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{point.lat}" /></f:facet>
+                    <f:facet name="input"><h:inputText value="#{point.lat}" /></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Longitude">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{point.lng}"/></f:facet>
+                    <f:facet name="input"><h:inputText value="#{point.lng}"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Edit">
+                <p:rowEditor/>
+            </p:column>
+
+            <p:column headerText="Delete">
+                <p:commandLink id="deleteLink" styleClass="ui-icon ui-icon-trash"  action="#{pointBean.deletePoint(point.id)}" update=":squareTableForm:pointTbl :squareTableForm:squareTbl" onsuccess="fillCanvas()"/>
+            </p:column>
+        </p:dataTable>
+
+        <p:dataTable id="squareTbl" var="square" value="#{pointBean.squareListDto.squareList}" paginator="true" rows="10" rowKey="#{square.squareNumber}">
+            <f:facet name="header">
+                Squares
+            </f:facet>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 1" />
+                </f:facet>
+                <h:outputText value="(#{square.p1.lat};#{square.p1.lng})" />
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 2" />
+                </f:facet>
+                <h:outputText value="(#{square.p2.lat};#{square.p2.lng})"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 3" />
+                </f:facet>
+                <h:outputText value="(#{square.p3.lat};#{square.p3.lng})"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Point 4" />
+                </f:facet>
+                <h:outputText value="(#{square.p4.lat};#{square.p4.lng})"/>
+            </p:column>
+        </p:dataTable>
+        <p:panel>
+            <p:commandButton value="Add" actionListener="#{pointBean.addPoint}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()" />
+            <p:outputLabel value="Lat:"/>
+            <p:inputText id="newLat" value="#{pointBean.newLat}" size="5"/>
+            <p:outputLabel value="Lng:"/>
+            <p:inputText id="newLng" value="#{pointBean.newLng}" size="5"/>
+        </p:panel>
+    </h:panelGrid>
+    <canvas id="outputCanvas" width="1000" height="400" style="border:1px solid #000000;"/>
+    <script>
+    function fillCanvas() {
+        $.getJSON( "http://localhost:8080/api/points/", function( json ) {
+            var canvas = document.getElementById('outputCanvas');
+            var context = canvas.getContext('2d');
+            context.strokeStyle = '#00ff00';
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            $.each(json.squareList, function(index, square) {
+                context.beginPath();
+                context.moveTo(square.p1.lng, square.p1.lat);
+                context.lineTo(square.p2.lng, square.p2.lat);
+                context.lineTo(square.p3.lng, square.p3.lat);
+                context.lineTo(square.p4.lng, square.p4.lat);
+                context.lineTo(square.p1.lng, square.p1.lat);
+                context.stroke();
+            });
+            context.strokeStyle = '#ff0000';
+            $.each(json.pointList, function(index, point) {
+                if (point.inDataset=='1')
+                {
+                    context.beginPath();
+                    context.fillRect(point.lng-2,point.lat-2,4,4);
+                    context.stroke();
+                }
+            });
+        });
+    }
+    </script>
+</h:form>
+</body>
+</html>
