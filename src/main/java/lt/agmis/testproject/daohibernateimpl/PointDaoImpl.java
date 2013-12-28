@@ -29,7 +29,7 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
-    public Point getPoint(int id) {
+    public Point getPoint(Integer id) {
         Point result = (Point) sessionFactory.getCurrentSession()
                 .createCriteria(Point.class)
                 .add(Restrictions.eq("id", id))
@@ -38,14 +38,18 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
-    public int storePoint(Point point) {
+    public Integer storePoint(Point point) {
         sessionFactory.getCurrentSession().save(point);
         return point.getId();
     }
 
     @Override
-    public int updatePoint(Point point) {
-        sessionFactory.getCurrentSession().update(point);
+    public Integer updatePoint(Point point) {
+        Point dbPoint = getPoint(point.getId());
+        dbPoint.setLat(point.getLat());
+        dbPoint.setLng(point.getLng());
+        dbPoint.setInDataset(point.isInDataset());
+        sessionFactory.getCurrentSession().merge(point);
         return point.getId();
     }
 
@@ -95,13 +99,13 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
-    public int deleteAll() {
+    public Integer deleteAll() {
         return sessionFactory.getCurrentSession().createSQLQuery("delete from pt").executeUpdate();
     }
 
     @Override
-    public void loadDefault() {
-        sessionFactory.getCurrentSession().createSQLQuery("insert into pt (select * from pt_backup)").executeUpdate();
+    public Integer loadDefault() {
+        return sessionFactory.getCurrentSession().createSQLQuery("insert into pt (select * from pt_backup)").executeUpdate();
     }
 
 

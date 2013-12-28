@@ -4,13 +4,14 @@
 </h:head>
 <body onload="fillCanvas()">
 <h:form id="squareTableForm">
+    <p:growl id="growl" showDetail="true" sticky="true" />
     <h:panelGrid id="tablesGrid" columns="2" cellpadding="10">
         <p:dataTable id="pointTbl" var="point" value="#{pointBean.squareListDto.pointList}" paginator="true" rows="10" rowKey="#{point.id}" selection="#{pointBean.selectedPoint}" selectionMode="single" editable="true">
-            <p:ajax event="rowEdit" update="@this :squareTableForm:pointTbl :squareTableForm:squareTbl" listener="#{pointBean.updateSelection}" onsuccess="fillCanvas()"/>
+            <p:ajax event="rowEdit" update="@this :squareTableForm:pointTbl :squareTableForm:squareTbl :squareTableForm:growl" listener="#{pointBean.updateSelection}" onsuccess="fillCanvas()"/>
             <f:facet name="header">
                 Dataset:
-                <p:commandButton value="Load default" actionListener="#{pointBean.loadDefault}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
-                <p:commandButton value="Clear all data" actionListener="#{pointBean.deleteAll}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()"></p:commandButton>
+                <p:commandButton value="Load default" actionListener="#{pointBean.loadDefault}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl :squareTableForm:growl" onsuccess="fillCanvas()"></p:commandButton>
+                <p:commandButton value="Clear all data" actionListener="#{pointBean.deleteAll}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl :squareTableForm:growl" onsuccess="fillCanvas()"></p:commandButton>
             </f:facet>
             <p:column headerText="Available">
                 <p:cellEditor>
@@ -38,7 +39,7 @@
             </p:column>
 
             <p:column headerText="Delete">
-                <p:commandLink id="deleteLink" styleClass="ui-icon ui-icon-trash"  action="#{pointBean.deletePoint(point.id)}" update=":squareTableForm:pointTbl :squareTableForm:squareTbl" onsuccess="fillCanvas()"/>
+                <p:commandLink id="deleteLink" styleClass="ui-icon ui-icon-trash"  action="#{pointBean.deletePoint(point.id)}" update=":squareTableForm:pointTbl :squareTableForm:squareTbl :squareTableForm:growl" onsuccess="fillCanvas()"/>
             </p:column>
         </p:dataTable>
 
@@ -76,17 +77,21 @@
             </p:column>
         </p:dataTable>
         <p:panel>
-            <p:commandButton value="Add" actionListener="#{pointBean.addPoint}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl" onsuccess="fillCanvas()" />
+            <p:commandButton value="Add" actionListener="#{pointBean.addPoint}" update=":squareTableForm:squareTbl :squareTableForm:pointTbl :squareTableForm:growl" onsuccess="fillCanvas()" />
             <p:outputLabel value="Lat:"/>
-            <p:inputText id="newLat" value="#{pointBean.newLat}" size="5"/>
+            <p:inputText id="newLat" value="#{pointBean.newLat}" size="5" required="true">
+                <f:validateDoubleRange minimum="0" maximum="400" />
+            </p:inputText>
             <p:outputLabel value="Lng:"/>
-            <p:inputText id="newLng" value="#{pointBean.newLng}" size="5"/>
+            <p:inputText id="newLng" value="#{pointBean.newLng}" size="5" required="true">
+                <f:validateDoubleRange minimum="0" maximum="1000" />
+            </p:inputText>
         </p:panel>
     </h:panelGrid>
     <canvas id="outputCanvas" width="1000" height="400" style="border:1px solid #000000;"/>
     <script>
     function fillCanvas() {
-        $.getJSON( "http://localhost:8080/api/points/", function( json ) {
+        $.getJSON( "#{pointBean.callPath}", function( json ) {
             var canvas = document.getElementById('outputCanvas');
             var context = canvas.getContext('2d');
             context.strokeStyle = '#00ff00';

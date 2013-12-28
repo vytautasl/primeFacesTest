@@ -28,45 +28,110 @@ public class PointController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
     public CreateResult updatePoint(@RequestBody Point point) {
-        pointService.updatePoint(point);
         CreateResult result = new CreateResult();
-        result.setSuccess(true);
+        Integer pointId=null;
+        try
+        {
+            pointId = pointService.updatePoint(point);
+        } catch (Exception e)
+        {
+            result.setDetailedDescription(e.getMessage());
+        }
+        if (pointId!=null)
+        {
+            result.setSuccess(true);
+            result.setDescription("The point has been updated");
+        } else {
+            result.setSuccess(false);
+            result.setDescription("The point has not been updated");
+        }
+        result.setId(pointId);
         return result;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public CreateResult addPoint(@RequestBody Point point) {
-        pointService.storePoint(point);
         CreateResult result = new CreateResult();
-        result.setSuccess(true);
+        Integer pointId=null;
+        try
+        {
+            pointId = pointService.storePoint(point);
+        } catch (Exception e)
+        {
+            result.setDetailedDescription(e.getMessage());
+        }
+        if (pointId!=null)
+        {
+            result.setSuccess(true);
+            result.setDescription("The point was created");
+        } else {
+            result.setSuccess(false);
+            result.setDescription("The point was not created");
+        }
+        result.setId(pointId);
         return result;
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public CreateResult deletePoint(@PathVariable int id) {
-        pointService.deletePoint(id);
+    public CreateResult deletePoint(@PathVariable Integer id) {
         CreateResult result = new CreateResult();
-        result.setSuccess(true);
+        Integer pointId=null;
+        try
+        {
+            pointService.deletePoint(id);
+            result.setSuccess(true);
+            result.setDescription("The point was deleted");
+        } catch (Exception e)
+        {
+            result.setDetailedDescription(e.getMessage());
+            result.setSuccess(false);
+            result.setDescription("The point was not deleted");
+        }
+        result.setId(pointId);
         return result;
     }
 
     @RequestMapping(value = "/deleteAll", method = RequestMethod.GET)
     @ResponseBody
     public CreateResult deleteAll() {
-        pointService.deleteAll();
         CreateResult result = new CreateResult();
-        result.setSuccess(true);
+        Integer pointId=null;
+        try
+        {
+            Integer deletedCount = pointService.deleteAll();
+            result.setSuccess(true);
+            result.setDescription(deletedCount + " points found in database");
+            result.setDetailedDescription("All the points was deleted");
+        } catch (Exception e)
+        {
+            result.setDetailedDescription(e.getMessage());
+            result.setSuccess(false);
+            result.setDescription("Error during points deleting");
+        }
+        result.setId(pointId);
         return result;
     }
 
     @RequestMapping(value = "/loadDefault", method = RequestMethod.GET)
     @ResponseBody
     public CreateResult loadDefault() {
-        pointService.loadDefault();
         CreateResult result = new CreateResult();
-        result.setSuccess(true);
+        Integer pointId=null;
+        try
+        {
+            Integer loadedCount = pointService.loadDefault();
+            result.setSuccess(true);
+            result.setDescription(loadedCount + " points found in database");
+            result.setDetailedDescription("All the points was loaded from backup");
+        } catch (Exception e)
+        {
+            result.setDetailedDescription(e.getMessage());
+            result.setSuccess(false);
+            result.setDescription("Error loading points");
+        }
+        result.setId(pointId);
         return result;
     }
 }

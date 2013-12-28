@@ -14,11 +14,11 @@ import java.util.List;
  */
 public interface PointDao {
     List<Point> getPoints();
-    Point getPoint(int id);
-    int storePoint(Point point);
-    int updatePoint(Point point);
+    Point getPoint(Integer id);
+    Integer storePoint(Point point);
+    Integer updatePoint(Point point);
     void deletePoint(Point point);
     List<SquareDto> getSquares();
-    int deleteAll();
-    void loadDefault();
+    Integer deleteAll();
+    Integer loadDefault();
 }

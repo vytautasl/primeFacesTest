@@ -1,7 +1,5 @@
 package lt.agmis.testproject.serviceimpl;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
 import lt.agmis.testproject.dao.PointDao;
 import lt.agmis.testproject.domain.Point;
 import lt.agmis.testproject.dto.SquareDto;
@@ -70,29 +68,52 @@ public class PointServiceImpl implements PointService {
     }
 
     private boolean pointsEquals(Point p1, Point p2) {
-        return (p1.getLng()==p2.getLng())&&(p1.getLat()==p2.getLat());
+        return (p1.getLng()==p2.getLng())&&(p1.getLat()==p2.getLat())&&(p1.isInDataset()==p2.isInDataset());
+    }
+
+    private boolean duplicatedPoint(Point point) {
+        List<Point> pointList = getPoints();
+        for (Point pointElement:pointList)
+        {
+            if (pointsEquals(point, pointElement))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 
+
     @Override
-    public int storePoint(Point point) {
-        pointDao.storePoint(point);
+    public Integer storePoint(Point point) throws Exception {
+        if (!duplicatedPoint(point))
+        {
+            pointDao.storePoint(point);
+        } else {
+            throw new Exception("The point already exists");
+        }
         return point.getId();
     }
 
     @Override
-    public int updatePoint(Point point) {
-        return pointDao.updatePoint(point);
+    public Integer updatePoint(Point point) throws Exception {
+        if (!duplicatedPoint(point))
+        {
+            return pointDao.updatePoint(point);
+        } else {
+            throw new Exception("The point already exists");
+        }
     }
 
     @Override
-    public void deletePoint(int id) {
+    public void deletePoint(Integer id) {
         Point point = pointDao.getPoint(id);
         pointDao.deletePoint(point);
     }
 
     @Override
-    public Point getPoint(int id) {
+    public Point getPoint(Integer id) {
         return pointDao.getPoint(id);
     }
 
@@ -102,13 +123,13 @@ public class PointServiceImpl implements PointService {
     }
 
     @Override
-    public int deleteAll() {
+    public Integer deleteAll() {
         return pointDao.deleteAll();
     }
 
     @Override
-    public void loadDefault() {
-        pointDao.loadDefault();
+    public Integer loadDefault() {
+        return pointDao.loadDefault();
     }
 
 }

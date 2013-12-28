@@ -30,4 +30,5 @@ public class SquareListDto {
     public void setPointList(List<Point> pointList) {
         this.pointList = pointList;
     }
+
 }

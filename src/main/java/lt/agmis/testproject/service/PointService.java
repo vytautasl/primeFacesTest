@@ -14,11 +14,11 @@ import java.util.List;
  */
 public interface PointService {
     List<SquareDto> getSquareList();
-    int storePoint(Point point);
-    int updatePoint(Point point);
-    void deletePoint(int id);
-    Point getPoint(int id);
+    Integer storePoint(Point point) throws Exception;
+    Integer updatePoint(Point point) throws Exception;
+    void deletePoint(Integer id);
+    Point getPoint(Integer id);
     List<Point> getPoints();
-    int deleteAll();
-    void loadDefault();
+    Integer deleteAll();
+    Integer loadDefault();
 }
