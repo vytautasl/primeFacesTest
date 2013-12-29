@@ -1,16 +1,14 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
 package lt.agmis.testproject.dto;
 
 import lt.agmis.testproject.domain.Point;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: VytautasL
- * Date: 12/25/13
- * Time: 6:02 PM
- * To change this template use File | Settings | File Templates.
- */
 public class SquareListDto {
     List<SquareDto> squareList;
     List<Point> pointList;

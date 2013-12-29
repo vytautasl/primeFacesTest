@@ -1,3 +1,8 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
 package lt.agmis.testproject.daohibernateimpl;
 
 import lt.agmis.testproject.dao.PointDao;
@@ -21,6 +26,9 @@ public class PointDaoImpl implements PointDao {
 
     @SuppressWarnings("unchecked")
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public List<Point> getPoints() {
         List<Point> result = (List<Point>) sessionFactory.getCurrentSession()
                 .createCriteria(Point.class)
@@ -29,6 +37,9 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public Point getPoint(Integer id) {
         Point result = (Point) sessionFactory.getCurrentSession()
                 .createCriteria(Point.class)
@@ -38,12 +49,18 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public Integer storePoint(Point point) {
         sessionFactory.getCurrentSession().save(point);
         return point.getId();
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public Integer updatePoint(Point point) {
         Point dbPoint = getPoint(point.getId());
         dbPoint.setLat(point.getLat());
@@ -54,11 +71,17 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public void deletePoint(Point point) {
         sessionFactory.getCurrentSession().delete(point);
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public List<SquareDto> getSquares() {
         List<SquareDto> squareDtoList = new ArrayList<SquareDto>();
         String sql =
@@ -67,8 +90,6 @@ public class PointDaoImpl implements PointDao {
                 " WHERE " +
                 " pow(p1.lng-p2.lng, 2) + pow(p1.lat-p2.lat, 2) + pow(p2.lng-p3.lng, 2) + pow(p2.lat-p3.lat, 2) = pow(p1.lng-p3.lng, 2) + pow(p1.lat-p3.lat, 2)" +
                 " AND pow(p2.lng-p3.lng, 2) + pow(p2.lat-p3.lat, 2) + pow(p3.lng-p4.lng, 2) + pow(p3.lat-p4.lat, 2) = pow(p2.lng-p4.lng, 2) + pow(p2.lat-p4.lat, 2)" +
-                " AND pow(p3.lng-p4.lng, 2) + pow(p3.lat-p4.lat, 2) + pow(p4.lng-p1.lng, 2) + pow(p4.lat-p1.lat, 2) = pow(p3.lng-p1.lng, 2) + pow(p3.lat-p1.lat, 2)" +
-                " AND pow(p4.lng-p1.lng, 2) + pow(p4.lat-p1.lat, 2) + pow(p1.lng-p2.lng, 2) + pow(p1.lat-p2.lat, 2) = pow(p4.lng-p2.lng, 2) + pow(p4.lat-p2.lat, 2)" +
                 " AND p1.id <> p2.id" +
                 " AND p2.id <> p3.id" +
                 " AND p3.id <> p4.id" +
@@ -76,7 +97,9 @@ public class PointDaoImpl implements PointDao {
                 " AND p1.inDataset = 1" +
                 " AND p2.inDataset = 1" +
                 " AND p3.inDataset = 1" +
-                " AND p4.inDataset = 1";
+                " AND p4.inDataset = 1" +
+                " AND pow(p4.lng-p1.lng, 2) + pow(p4.lat-p1.lat, 2)=pow(p1.lng-p2.lng, 2) + pow(p1.lat-p2.lat, 2)"
+                ;
         List<Map> response = (List<Map>)sessionFactory.getCurrentSession().createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP).list();
 
         for (int i=0; i<response.size(); i++)
@@ -99,12 +122,19 @@ public class PointDaoImpl implements PointDao {
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public Integer deleteAll() {
         return sessionFactory.getCurrentSession().createSQLQuery("delete from pt").executeUpdate();
     }
 
     @Override
+    /**
+     * {@inheritDoc}
+     */
     public Integer loadDefault() {
+        deleteAll();
         return sessionFactory.getCurrentSession().createSQLQuery("insert into pt (select * from pt_backup)").executeUpdate();
     }
 

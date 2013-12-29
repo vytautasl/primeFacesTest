@@ -1,12 +1,11 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
+
 package lt.agmis.testproject.dto;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ignas
- * Date: 9/13/13
- * Time: 9:47 AM
- * To change this template use File | Settings | File Templates.
- */
 public class CreateResult {
     private boolean success;
     private String description;

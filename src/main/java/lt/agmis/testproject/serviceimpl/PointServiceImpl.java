@@ -1,3 +1,8 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
 package lt.agmis.testproject.serviceimpl;
 
 import lt.agmis.testproject.dao.PointDao;
@@ -11,17 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ignas
- * Date: 10/3/13
- * Time: 3:08 PM
- * To change this template use File | Settings | File Templates.
- */
 @Service
 @Transactional
 public class PointServiceImpl implements PointService {
 
+    public static final String THE_POINT_ALREADY_EXISTS = "The point already exists";
     @Autowired
     private PointDao pointDao;
 
@@ -91,7 +90,7 @@ public class PointServiceImpl implements PointService {
         {
             pointDao.storePoint(point);
         } else {
-            throw new Exception("The point already exists");
+            throw new Exception(THE_POINT_ALREADY_EXISTS);
         }
         return point.getId();
     }
@@ -102,7 +101,7 @@ public class PointServiceImpl implements PointService {
         {
             return pointDao.updatePoint(point);
         } else {
-            throw new Exception("The point already exists");
+            throw new Exception(THE_POINT_ALREADY_EXISTS);
         }
     }
 

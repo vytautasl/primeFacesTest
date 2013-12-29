@@ -1,4 +1,11 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
+
 package lt.agmis.testproject.domain;
+
 
 
 import javax.persistence.*;

@@ -1,3 +1,8 @@
+/**
+ * @author      Vytautas Lesciauskas <vlesciauskas@gmail.com>
+ * @version     1.0
+ * @since       2013-12-29
+ */
 package lt.agmis.testproject.faces;
 
 import lt.agmis.testproject.domain.Point;
@@ -32,6 +37,7 @@ public class PointBean {
     public static final String ADD_CALL = "add";
     public static final String DELETE_ALL_CALL = "deleteAll";
     public static final String LOAD_DEFAULT_CALL = "loadDefault";
+    public static final String SQUARES_FORMED = " squares formed";
     SquareListDto squareListDto;
     SquareDto selectedSquare;
     Point selectedPoint;
@@ -42,6 +48,11 @@ public class PointBean {
     private String deployServer;
     private String callPath;
 
+    /**
+     * Provides the message for the user from the call result
+     *
+     * @param result result of performed call
+     */
     private void addMessage(CreateResult result)
     {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -83,6 +94,9 @@ public class PointBean {
     }
 
     @PostConstruct
+    /**
+     * Initialises call paths, loads initial dataset
+     */
     public void init()
     {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -117,15 +131,25 @@ public class PointBean {
         this.selectedPoint = selectedPoint;
     }
 
+    /**
+     * Implements updateSelection action. Performed after checkbox [isInDataset] was clicked
+     *
+     * @param event
+     */
     public void updateSelection(RowEditEvent event)
     {
         Point point = (Point)event.getObject();
         CreateResult result = (CreateResult)CallUtils.postCall(getCallPath()+ UPDATE_CALL, point, CreateResult.class, new HashMap());
         squareListDto = (SquareListDto)CallUtils.getCall(getCallPath(), SquareListDto.class, new HashMap());
-        if (result.isSuccess()) result.setDetailedDescription(squareListDto.getSquareList().size()+" squares formed");
+        if (result.isSuccess()) result.setDetailedDescription(squareListDto.getSquareList().size()+ SQUARES_FORMED);
         addMessage(result);
     }
 
+    /**
+     * Implements deletePoint action
+     *
+     * @param id identifier of the point to delete
+     */
     public void deletePoint(int id)
     {
         CreateResult result = (CreateResult)CallUtils.getCall(getCallPath()+ DELETE_CALL + id, CreateResult.class, new HashMap());
@@ -133,6 +157,9 @@ public class PointBean {
         addMessage(result);
     }
 
+    /**
+     * Collects the data input fields and adds the point to database
+     */
     public void addPoint()
     {
         Point point = new Point();
@@ -141,10 +168,13 @@ public class PointBean {
         point.setLng(getNewLng());
         CreateResult result = (CreateResult)CallUtils.postCall(getCallPath() + ADD_CALL, point, CreateResult.class, new HashMap());
         squareListDto = (SquareListDto)CallUtils.getCall(getCallPath(), SquareListDto.class, new HashMap());
-        if (result.isSuccess()) result.setDetailedDescription(squareListDto.getSquareList().size()+" squares formed");
+        if (result.isSuccess()) result.setDetailedDescription(squareListDto.getSquareList().size()+SQUARES_FORMED);
         addMessage(result);
     }
 
+    /**
+     *  Implements deleteAll action. Deletes all points from the working table
+     */
     public void deleteAll()
     {
         CreateResult result = (CreateResult)CallUtils.getCall(getCallPath()+ DELETE_ALL_CALL, CreateResult.class, new HashMap());
@@ -152,6 +182,9 @@ public class PointBean {
         addMessage(result);
     }
 
+    /**
+     *  Implements loadDefault action. Loads points from backup table
+     */
     public void loadDefault()
     {
         CreateResult result = (CreateResult)CallUtils.getCall(getCallPath()+ LOAD_DEFAULT_CALL, CreateResult.class, new HashMap());
